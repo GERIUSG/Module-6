@@ -1,48 +1,59 @@
-# 🐍 Python OOP: Operator Overloading (Less Than `<`)
+# # 🐍 Python OOP: Polymorphism with Classes
 
 ## 🎯 AIM
 
-To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
+To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Create Class `A`**:
-   - Define the `__init__()` method to initialize the object with a value `a`.
+1. **Create Class `Beans`**:
+   - Define `type()` method that prints `"Vegetable"`.
+   - Define `color()` method that prints `"Green"`.
 
-2. **Overload the `<` Operator**:
-   - Define the `__lt__()` method with logic:
-     - If `self.a < o.a`, return `"ob1 is less than ob2"`
-     - Else, return `"ob2 is less than ob1"`
+2. **Create Class `Mango`**:
+   - Define `type()` method that prints `"Fruit"`.
+   - Define `color()` method that prints `"Yellow"`.
 
-3. **Create Objects**:
-   - Instantiate two objects `ob1` and `ob2` with values.
+3. **Define Generic Function `func(obj)`**:
+   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
 
-4. **Use `<` Operator**:
-   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
+4. **Create Objects**:
+   - Instantiate `Beans` and `Mango`.
+   - Pass them to `func()` and execute the program.
 
 ---
 
 ## 💻 Program
 ```
 
-class A:
-    def __init__(self, a):
-        self.a = a
-    def __lt__(self, other):
-        if self.a < other.a:
-            return "ob1 is less than ob2"
-        else:
-            return "ob2 is less than ob1"
-ob1 = A(10)
-ob2 = A(20)
-print(ob1 < ob2)
+class Beans:
+    def type(self):
+        print("Vegetable")
+
+    def color(self):
+        print("Green")
+class Mango:
+    def type(self):
+        print("Fruit")
+
+    def color(self):
+        print("Yellow")
+def func(obj):
+    obj.type()
+    obj.color()
+
+obj_beans = Beans()
+obj_mango = Mango()
+
+func(obj_beans)
+func(obj_mango)
 
 
 ```
 ## Output
-![image](https://github.com/user-attachments/assets/9958c47b-4180-42dd-8d5e-cf48e1076ef1)
+![image](https://github.com/user-attachments/assets/ec8058ba-6e34-4d17-bba6-561f71d1a1d6)
 
 ## Result
 Therefore,the given python programm is sucessfully verified.
